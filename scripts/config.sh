@@ -60,6 +60,25 @@ prop_replace 'efm.db.sqlDebug' "${EFM_DB_SQL_DEBUG:-false}"
 
 prop_replace 'logging.level.com.cloudera.cem.efm' "${LOG_LEVEL_CEM_EFM:-INFO}"
 
+prop_replace 'efm.server.ssl.enabled' "${EFM_SERVER_SSL_ENABLED:-false}"
+
+prop_replace 'efm.server.ssl.keyStore' "${EFM_SERVER_SSL_KEYSTORE:-./conf/keystore.jks}"
+
+prop_replace 'efm.server.ssl.keyStoreType' "${EFM_SERVER_SSL_KEYSTORE_TYPE:-jks}"
+
+prop_replace 'efm.server.ssl.keyStorePassword' "${EFM_SERVER_SSL_KEYSTORE_PASSWORD}"
+
+prop_replace 'efm.server.ssl.keyPassword' "${EFM_SERVER_SSL_KEY_PASSWORD}"
+
+prop_replace 'efm.server.ssl.trustStore' "${EFM_SERVER_SSL_TRUSTSTORE:-./conf/truststore.jks}"
+
+prop_replace 'efm.server.ssl.trustStoreType' "${EFM_SERVER_SSL_TRUSTSTORE_TYPE:-jks}"
+
+prop_replace 'efm.server.ssl.trustStorePassword' "${EFM_SERVER_SSL_TRUSTSTORE_PASSWORD}"
+
+prop_replace 'efm.server.ssl.clientAuth' "${EFM_SERVER_SSL_CLIENTAUTH:-WANT}"
+
+prop_replace 'JAVA_OPTS' "${JAVA_OPTS:--Xms512m -Xmx512m -Djava.net.preferIPv4Stack=true}" ${EFM_HOME}/conf/efm.conf
 
 wget -P ${EFM_HOME}/lib/ https://sunileman.s3.amazonaws.com/mysql-driver/mysql-connector-java-8.0.19.jar
 
