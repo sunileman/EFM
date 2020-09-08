@@ -78,9 +78,10 @@ prop_replace 'efm.server.ssl.trustStorePassword' "${EFM_SERVER_SSL_TRUSTSTORE_PA
 
 prop_replace 'efm.server.ssl.clientAuth' "${EFM_SERVER_SSL_CLIENTAUTH:-WANT}"
 
+prop_add 'efm.manifest.strategy' "${EFM_MANIFEST_STRATEGY:-Last In}"
+
 prop_replace 'JAVA_OPTS' "${JAVA_OPTS:--Xms512m -Xmx512m -Djava.net.preferIPv4Stack=true}" ${EFM_HOME}/conf/efm.conf
 
-wget -P ${EFM_HOME}/lib/ https://sunileman.s3.amazonaws.com/mysql-driver/mysql-connector-java-8.0.19.jar
 
 
 

@@ -28,6 +28,13 @@ prop_replace () {
   sed -i -e "s|^$1=.*$|$1=$2|"  ${target_file}
 }
 
+prop_add () {
+  target_file=${3:-${efm_props_file}}
+  echo 'adding paramater to target file ' ${target_file}
+  echo "" >> ${target_file}
+  echo "$1=$2" >> ${target_file}
+
+}
 
 uncomment() {
 	target_file=${2}
