@@ -7,7 +7,7 @@ ENV NIFI_REGISTRY_ENABLED=false
 ENV NIFI_REGISTRY=http://localhost:18080
 ENV NIFI_REGISTRY_BUCKETID=
 ENV NIFI_REGISTRY_BUCKETNAME=
-ENV EFM_VERSION=1.0.0.1.2.0.0-70
+ENV EFM_VERSION=1.0.0.1.2.2.0-14
 ENV MIRROR_SITE=https://archive.cloudera.com/CEM/centos7
 ENV EFM_DB_URL=jdbc:h2:./database/efm;AUTOCOMMIT=OFF;DB_CLOSE_ON_EXIT=FALSE;LOCK_MODE=3
 ENV EFM_DB_DRIVER=org.h2.Driver
@@ -38,13 +38,13 @@ EXPOSE 10080
 
 ADD ./scripts $EFM_SCRIPTS
 
-RUN wget https://sunileman.s3.amazonaws.com/CEM/EFM/efm-$EFM_VERSION-bin.tar.gz -P $EFM_BASE_DIR
+RUN wget https://sunileman1.s3.amazonaws.com/CEM/EFM/efm-$EFM_VERSION-bin.tar.gz -P $EFM_BASE_DIR
 
 
 run tar -xzf $EFM_BASE_DIR/efm-$EFM_VERSION-bin.tar.gz -C $EFM_BASE_DIR
 
 #grab mysql jar for EFM repo
-#RUN wget -P ${EFM_HOME}/lib/ https://sunileman.s3.amazonaws.com/mysql-driver/mariadb-java-client-2.6.0.jar
+#RUN wget -P ${EFM_HOME}/lib/ https://sunileman1.s3.amazonaws.com/mysql-driver/mariadb-java-client-2.6.0.jar
 
 RUN groupadd -g $GID efm || groupmod -n efm `getent group $GID | cut -d: -f1`
 
